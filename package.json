@@ -1,0 +1,21 @@
+{
+  "name": "meu-financeiro",
+  "version": "1.0.0",
+  "description": "Painel financeiro pessoal para desktop",
+  "main": "electron/principal.js",
+  "scripts": {
+    "iniciar": "electron .",
+    "dev": "electron .",
+    "validar": "node --check electron/principal.js && node --check electron/ponte.js && node --check src/aplicacao.js"
+  },
+  "keywords": [
+    "electron",
+    "financas",
+    "dashboard"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^38.2.1"
+  }
+}

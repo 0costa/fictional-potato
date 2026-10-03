@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Meu Financeiro</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <svg class="simbolos" aria-hidden="true">
+      <symbol id="icone-grade" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+      <symbol id="icone-carteira" viewBox="0 0 24 24"><path d="M4 7.5h14a2 2 0 0 1 2 2V18H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h11v4.5"/><path d="M15 11h6v4h-6a2 2 0 0 1 0-4Z"/></symbol>
+      <symbol id="icone-grafico" viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></symbol>
+      <symbol id="icone-meta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+      <symbol id="icone-sino" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+      <symbol id="icone-ajustes" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.6v-.2h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/></symbol>
+      <symbol id="icone-sair" viewBox="0 0 24 24"><path d="M14 8V4H4v16h10v-4M10 12h11M18 9l3 3-3 3"/></symbol>
+      <symbol id="icone-lupa" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+      <symbol id="icone-olho" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+      <symbol id="icone-seta" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
+      <symbol id="icone-documento" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol>
+      <symbol id="icone-casa" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9H6v-9"/><path d="M10 20v-6h4v6"/></symbol>
+      <symbol id="icone-carro" viewBox="0 0 24 24"><path d="m5 9 2-4h10l2 4 2 2v6H3v-6l2-2Z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 9h14"/></symbol>
+      <symbol id="icone-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="icone-fechar" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="icone-tendencia" viewBox="0 0 24 24"><path d="M3 19h18M5 16l5-5 4 3 6-8"/><path d="M16 6h4v4"/></symbol>
+      <symbol id="icone-mais-opcoes" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+      <symbol id="icone-alimentacao" viewBox="0 0 24 24"><path d="M7 3v8M4 3v5a3 3 0 0 0 6 0V3M7 11v10M15 3v18M15 3c4 2 5 6 5 9h-5"/></symbol>
+    </svg>
+
+    <main class="moldura">
+      <aside class="barra-lateral" aria-label="Navegação principal">
+        <a class="marca" href="#" aria-label="Meu Financeiro">M<span>F</span></a>
+        <nav class="navegacao">
+          <button class="item-navegacao ativo" type="button" data-rota="visao-geral" aria-label="Visão geral" title="Visão geral"><svg><use href="#icone-grade" /></svg></button>
+          <button class="item-navegacao" type="button" data-rota="despesas" aria-label="Despesas" title="Despesas"><svg><use href="#icone-documento" /></svg></button>
+          <button class="item-navegacao" type="button" data-rota="cartoes" aria-label="Cartões" title="Cartões"><svg><use href="#icone-carteira" /></svg></button>
+          <button class="item-navegacao" type="button" data-rota="compras-parceladas" aria-label="Compras parceladas" title="Compras parceladas"><svg><use href="#icone-seta" /></svg></button>
+          <button class="item-navegacao" type="button" data-rota="assinaturas" aria-label="Assinaturas" title="Assinaturas"><svg><use href="#icone-sino" /></svg></button>
+          <button class="item-navegacao" type="button" data-rota="despesas-mensais" aria-label="Despesas mensais" title="Despesas mensais"><svg><use href="#icone-grafico" /></svg></button>
+          <button class="item-navegacao" type="button" data-rota="receitas" aria-label="Receitas" title="Receitas"><svg><use href="#icone-meta" /></svg></button>
+          <button class="item-navegacao" type="button" data-rota="projecao" aria-label="Projeção financeira" title="Projeção financeira"><svg><use href="#icone-tendencia" /></svg></button>
+        </nav>
+        <button class="item-navegacao sair" type="button" aria-label="Sair"><svg><use href="#icone-sair" /></svg></button>
+      </aside>
+
+      <section class="conteudo">
+        <header class="cabecalho">
+          <div class="boas-vindas">
+            <div class="avatar avatar-principal">KS</div>
+            <div><strong>Olá, Kelvin!</strong><small>Tenha um dia próspero.</small></div>
+          </div>
+          <label class="campo-busca">
+            <svg><use href="#icone-lupa" /></svg>
+            <input id="busca" type="search" placeholder="Buscar transação..." autocomplete="off" />
+            <kbd>⌘ K</kbd>
+          </label>
+          <button class="botao-conta" type="button"><span class="ponto-online"></span> Minha conta <span class="chevron">⌄</span></button>
+        </header>
+
+        <div class="grade-painel pagina ativa" data-rota-pagina="visao-geral">
+          <section class="coluna-principal">
+            <div class="titulo-secao">
+              <div><h1>Seu dinheiro, organizado.</h1></div>
+              <button class="link-botao" type="button" id="alternar-saldos"><svg><use href="#icone-olho" /></svg> Ocultar valores</button>
+            </div>
+
+            <div class="grade-saldos grade-saldos-carrossel">
+              <div id="carrossel-cartoes-dashboard"></div>
+              <div class="resumos-dashboard">
+                <article class="cartao-resumo"><span>Saldo disponível</span><strong class="saldo-sensivel" id="valor-saldo">R$ 15.780,00</strong><small>Após compromissos do mês</small></article>
+                <article class="cartao-resumo"><span>Receitas do mês</span><strong class="saldo-sensivel" id="valor-receitas">R$ 8.260,00</strong><small class="positivo">Entradas consolidadas</small></article>
+              </div>
+            </div>
+
+            <div class="acoes-rapidas" aria-label="Ações rápidas">
+              <button class="acao-rapida destaque" type="button" data-acao="transferir"><span><svg><use href="#icone-seta" /></svg></span>Transferir</button>
+              <button class="acao-rapida" type="button" data-acao="pagar"><span><svg><use href="#icone-documento" /></svg></span>Pagar conta</button>
+              <button class="acao-rapida" type="button" data-acao="moradia"><span><svg><use href="#icone-casa" /></svg></span>Moradia</button>
+              <button class="acao-rapida" type="button" data-acao="transporte"><span><svg><use href="#icone-carro" /></svg></span>Transporte</button>
+              <button class="acao-rapida somente-icone" type="button" data-acao="mais" aria-label="Mais ações"><span><svg><use href="#icone-mais" /></svg></span></button>
+            </div>
+
+            <section class="secao-transacoes">
+              <div class="cabecalho-lista"><div><h2>Transações recentes</h2></div><button class="link-botao" type="button" id="ver-todas">Ver todas <svg><use href="#icone-seta" /></svg></button></div>
+              <div class="filtros">
+                <button class="filtro ativo" type="button" data-filtro="todas">Todas</button>
+                <button class="filtro" type="button" data-filtro="entrada">Entradas</button>
+                <button class="filtro" type="button" data-filtro="saida">Saídas</button>
+              </div>
+              <div class="tabela-transacoes">
+                <div class="cabecalho-tabela"><span>Descrição</span><span>Data</span><span>Categoria</span><span>Valor</span></div>
+                <div id="lista-transacoes"></div>
+                <div class="estado-vazio" id="estado-vazio" hidden>Nenhuma transação encontrada.</div>
+              </div>
+            </section>
+          </section>
+
+          <aside class="painel-estatisticas">
+            <div class="cabecalho-estatisticas"><div><h2>Resumo mensal</h2></div><select id="periodo" aria-label="Período"><option>Este mês</option><option>Mês anterior</option></select></div>
+            <div class="grafico-rosca" aria-label="Gastos de R$ 5.284,00 de um total de R$ 8.260,00">
+              <svg viewBox="0 0 180 180"><circle class="trilho" cx="90" cy="90" r="66"/><circle class="fatia azul" cx="90" cy="90" r="66"/><circle class="fatia escura" cx="90" cy="90" r="66"/></svg>
+              <div><small>Gastos no mês</small><strong class="saldo-sensivel" id="valor-gastos">R$ 5.284</strong><span id="percentual-gastos">64% da receita</span></div>
+            </div>
+            <div class="legenda-grafico"><span><i class="azul"></i>Despesas</span><span><i class="escuro"></i>Disponível</span></div>
+
+            <div class="divisor-horizontal"></div>
+            <div class="cabecalho-categorias"><h3>Maiores gastos</h3><button type="button" aria-label="Mais opções"><svg><use href="#icone-mais-opcoes" /></svg></button></div>
+            <div class="lista-categorias">
+              <article><div class="icone-categoria azul"><svg><use href="#icone-casa" /></svg></div><div class="detalhe-categoria"><div><strong>Moradia</strong><span class="saldo-sensivel">R$ 1.840</span></div><small>35% dos gastos</small><div class="progresso"><i style="width: 72%"></i></div></div></article>
+              <article><div class="icone-categoria escuro"><svg><use href="#icone-seta" /></svg></div><div class="detalhe-categoria"><div><strong>Transferências</strong><span class="saldo-sensivel">R$ 1.220</span></div><small>23% dos gastos</small><div class="progresso"><i style="width: 51%"></i></div></div></article>
+              <article><div class="icone-categoria azul-claro"><svg><use href="#icone-alimentacao" /></svg></div><div class="detalhe-categoria"><div><strong>Alimentação</strong><span class="saldo-sensivel">R$ 965</span></div><small>18% dos gastos</small><div class="progresso"><i style="width: 38%"></i></div></div></article>
+              <article><div class="icone-categoria cinza"><svg><use href="#icone-documento" /></svg></div><div class="detalhe-categoria"><div><strong>Assinaturas</strong><span class="saldo-sensivel">R$ 312</span></div><small>6% dos gastos</small><div class="progresso"><i style="width: 17%"></i></div></div></article>
+            </div>
+            <button class="botao-relatorio" type="button">Ver relatório completo <svg><use href="#icone-seta" /></svg></button>
+          </aside>
+        </div>
+
+        <section class="pagina pagina-cadastros" data-rota-pagina="cadastro" id="pagina-cadastro"></section>
+      </section>
+    </main>
+
+    <dialog id="modal-transferencia">
+      <form method="dialog" id="formulario-transferencia">
+        <div class="cabecalho-modal"><div><h2>Fazer transferência</h2></div><button class="fechar-modal" value="cancel" type="submit" formnovalidate aria-label="Fechar"><svg><use href="#icone-fechar" /></svg></button></div>
+        <label>Destinatário<input name="destinatario" required placeholder="Nome ou chave Pix" /></label>
+        <label>Valor<input class="entrada-monetaria" name="valor" required type="text" inputmode="numeric" data-minimo="0.01" placeholder="R$ 0,00" autocomplete="off" /></label>
+        <label>Descrição <span>(opcional)</span><input name="descricao" placeholder="Ex.: Aluguel de setembro" /></label>
+        <div class="acoes-modal"><button class="botao-secundario" value="cancel" type="submit" formnovalidate>Cancelar</button><button class="botao-primario" value="confirmar" type="submit">Continuar <svg><use href="#icone-seta" /></svg></button></div>
+      </form>
+    </dialog>
+    <dialog id="modal-simulacao" class="modal-simulacao">
+      <form id="formulario-simulacao">
+        <div class="cabecalho-modal">
+          <div><h2>Simular compra parcelada</h2><p>Veja o impacto antes de assumir um novo compromisso.</p></div>
+          <button class="fechar-modal" type="button" data-fechar-simulacao aria-label="Fechar"><svg><use href="#icone-fechar" /></svg></button>
+        </div>
+        <div class="campos-simulacao">
+          <label>Descrição<input name="descricao" required maxlength="50" placeholder="Ex.: Novo computador" /></label>
+          <label>Valor total<input class="entrada-monetaria" name="valorTotal" required type="text" inputmode="numeric" data-minimo="0.01" placeholder="R$ 0,00" autocomplete="off" /></label>
+          <label>Parcelas<input name="parcelas" required type="number" min="2" max="120" value="12" /></label>
+          <label>Primeira parcela<input class="entrada-data" name="inicio" required type="text" inputmode="numeric" maxlength="10" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" placeholder="dd/MM/yyyy" autocomplete="off" /></label>
+        </div>
+        <button class="botao-calcular" type="submit"><svg><use href="#icone-tendencia" /></svg> Calcular impacto</button>
+        <div id="resultado-simulacao" class="resultado-simulacao"></div>
+      </form>
+    </dialog>
+    <div class="calendario-flutuante" id="calendario-data" role="dialog" aria-label="Selecionar data" popover="manual">
+      <header class="cabecalho-calendario">
+        <button type="button" data-mes-anterior aria-label="Mês anterior"><svg><use href="#icone-seta" /></svg></button>
+        <strong id="titulo-calendario"></strong>
+        <button type="button" data-proximo-mes aria-label="Próximo mês"><svg><use href="#icone-seta" /></svg></button>
+      </header>
+      <div class="dias-semana" aria-hidden="true"><span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
+      <div class="grade-calendario" id="grade-calendario"></div>
+      <footer class="rodape-calendario"><button type="button" data-selecionar-hoje>Selecionar hoje</button><span>dd/MM/yyyy</span></footer>
+    </div>
+    <div class="notificacao" id="notificacao" role="status" aria-live="polite"></div>
+    <script src="aplicacao.js"></script>
+  </body>
+</html>
